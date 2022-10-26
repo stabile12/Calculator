@@ -19,7 +19,7 @@ export default class Calculator extends Component {
 
   setOperation(operation) {
     if (this.state.current === 0) {
-      this.setState({ operation, current: 1, clearDisplay: true})
+      this.setState({ operation, current: 1, clearDisplay: true});
     } else {
       const finish = operation === '='
       const currentOperation = this.state.operation
@@ -27,10 +27,13 @@ export default class Calculator extends Component {
       const values = [...this.state.values]
       values[0] = eval(`${values[0]} ${currentOperation} ${values[1]}`)
 
+      values[1] = 0
       this.setState({
         displayValue: values[0],
         operation: finish ? null : operation,
-        current: finish ? 0 : 1
+        current: finish ? 0 : 1,
+        clearDisplay: !finish,
+        values
       })
     }
   }
@@ -77,6 +80,7 @@ export default class Calculator extends Component {
         <Button label="0" click={addDigit} double/>
         <Button label="." click={addDigit}/>
         <Button label="=" click={setOperation} />
+        <Button label="**" click={setOperation} operation />
       </div>
     )
   }
