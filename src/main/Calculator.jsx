@@ -58,6 +58,7 @@ export default class Calculator extends Component {
     const addDigit = n => this.addDigit(n)
     const setOperation = op => this.setOperation(op)
     return (
+      <>
       <div className='calculator'>
         <Display value={this.state.displayValue}  />
         <Button label="AC" click={() => this.clearMemory()} triple/>
@@ -79,6 +80,7 @@ export default class Calculator extends Component {
         <Button label="=" click={setOperation} />
       </div>
       <footer><p>Special thanks to @lauretezone(beta tester)</p></footer>
+      </>
     )
   }
 }
