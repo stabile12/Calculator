@@ -78,6 +78,7 @@ export default class Calculator extends Component {
         <Button label="." click={addDigit}/>
         <Button label="=" click={setOperation} />
       </div>
+      <footer><p>Special thanks to @lauretezone(beta tester)</p></footer>
     )
   }
 }
